@@ -74,6 +74,10 @@
 				<version>0.4.11</version>
 				<configuration>
 					<imageName>${project.artifactId}</imageName>
+                    <imageTags>
+                        <imageTag>${project.version}</imageTag>
+                        <imageTag>latest</imageTag>
+                    </imageTags>
 					<dockerDirectory>${docker.baseDir}</dockerDirectory>
 					<resources>
 						<resource>
@@ -83,6 +87,26 @@
 						</resource>
 					</resources>
 				</configuration>
+                <executions>
+                    <execution>
+                        <id>build-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>build</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>tag-image</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>tag</goal>
+                        </goals>
+                        <configuration>
+                            <image>${project.artifactId}</image>
+                            <newName>334344561596.dkr.ecr.us-east-1.amazonaws.com/cloudconsulting/${project.artifactId}</newName>
+                        </configuration>
+                    </execution>
+                </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
