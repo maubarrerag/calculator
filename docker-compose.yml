@@ -8,8 +8,8 @@ services:
       - MYSQL_DATABASE=calculator
       - MYSQL_USER=dbuser
       - MYSQL_PASSWORD=dbp4ss
-  spring-boot-jpa-docker-webapp:
-    image: 334344561596.dkr.ecr.us-east-1.amazonaws.com/calculator:latest
+  calculator:
+    image: 334344561596.dkr.ecr.us-east-1.amazonaws.com/calculator
     depends_on:
       - mysql
     ports:

@@ -28,6 +28,11 @@
 
 	<dependencies>
         <dependency>
+            <groupId>com.spotify</groupId>
+            <artifactId>docker-maven-plugin</artifactId>
+            <version>1.1.1</version>
+        </dependency>
+        <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
@@ -73,11 +78,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>1.1.1</version>
 				<configuration>
-					<imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}</imageName>
-                    <imageTags>
-                        <imageTag>${project.version}</imageTag>
-                        <imageTag>latest</imageTag>
-                    </imageTags>
+					<imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</imageName>
 					<dockerDirectory>${docker.baseDir}</dockerDirectory>
 					<resources>
 						<resource>
@@ -102,8 +103,8 @@
                             <goal>tag</goal>
                         </goals>
                         <configuration>
-                            <image>${project.artifactId}:${project.version}</image>
-                            <newName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:latest</newName>
+                            <image>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</image>
+                            <newName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</newName>
                         </configuration>
                     </execution>
                     <execution>
@@ -113,6 +114,7 @@
                             <goal>push</goal>
                         </goals>
                         <configuration>
+                            <registryUrl>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}</registryUrl>
                             <imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:latest</imageName>
                         </configuration>
                     </execution>
