@@ -79,6 +79,7 @@
 				<version>1.1.1</version>
 				<configuration>
 					<imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</imageName>
+                    <registryUrl>334344561596.dkr.ecr.us-east-1.amazonaws.com</registryUrl>
 					<dockerDirectory>${docker.baseDir}</dockerDirectory>
 					<resources>
 						<resource>
