@@ -78,8 +78,7 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>1.1.1</version>
 				<configuration>
-					<imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</imageName>
-                    <registryUrl>334344561596.dkr.ecr.us-east-1.amazonaws.com</registryUrl>
+					<imageName>cloudconsulting/${project.artifactId}:${project.version}</imageName>
 					<dockerDirectory>${docker.baseDir}</dockerDirectory>
 					<resources>
 						<resource>
@@ -104,8 +103,8 @@
                             <goal>tag</goal>
                         </goals>
                         <configuration>
-                            <image>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</image>
-                            <newName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:${project.version}</newName>
+                            <image>cloudconsulting/${project.artifactId}:${project.version}</image>
+                            <newName>cloudconsulting/${project.artifactId}:${project.version}</newName>
                         </configuration>
                     </execution>
                     <execution>
@@ -115,8 +114,8 @@
                             <goal>push</goal>
                         </goals>
                         <configuration>
-                            <registryUrl>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}</registryUrl>
-                            <imageName>334344561596.dkr.ecr.us-east-1.amazonaws.com/${project.artifactId}:latest</imageName>
+                            <registryUrl>${project.artifactId}</registryUrl>
+                            <imageName>${project.artifactId}:latest</imageName>
                         </configuration>
                     </execution>
                 </executions>

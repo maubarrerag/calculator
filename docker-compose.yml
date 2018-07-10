@@ -9,7 +9,7 @@ services:
       - MYSQL_USER=dbuser
       - MYSQL_PASSWORD=dbp4ss
   calculator:
-    image: 334344561596.dkr.ecr.us-east-1.amazonaws.com/calculator
+    image: cloudconsulting/calculator:0.0.1
     depends_on:
       - mysql
     ports:
