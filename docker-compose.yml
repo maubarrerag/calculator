@@ -19,3 +19,7 @@ services:
       - DATABASE_PASSWORD=dbp4ss
       - DATABASE_NAME=calculator
       - DATABASE_PORT=3306
+    command: >
+          /bin/bash -c "
+            sleep 5;
+            nc -lk 0.0.0.0 3306;"
