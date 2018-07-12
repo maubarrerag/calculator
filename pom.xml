@@ -86,6 +86,11 @@
 							<directory>${project.build.directory}</directory>
 							<include>${project.build.finalName}.jar</include>
 						</resource>
+						<resource>
+							<targetPath>/</targetPath>
+							<directory>${docker.baseDir}</directory>
+							<include>wrapper.sh</include>
+						</resource>
 					</resources>
 				</configuration>
                 <executions>
